@@ -1,0 +1,29 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    <div class="row">
+        {% for auction in auctions %}
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card listing-card h-100">
+            <a href="{%url 'listing' listing_id=auction.id%}" class="text-decoration-none text-body">
+            {%if auction.image%}
+            <img src="{{auction.image}}" class="card-img-top">
+            {%endif%}
+            <div class="card-body">
+                <h5 class="card-title">
+                {{auction.name}}
+                </h5>
+
+                <p class="card-text">Current bid: € {{auction.current_price}}</p>
+                <p class="card-text">{{auction.description}}</p>
+            </div>
+            </a>
+            </div>
+        </div>
+        {%empty%}
+        <h3>No Auctions Available</h3>
+        {%endfor%}
+    </div>
+    
+{% endblock %}

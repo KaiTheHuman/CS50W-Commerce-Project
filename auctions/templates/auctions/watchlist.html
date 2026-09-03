@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    {%for item in watchlist%}
+    <div class="card watchlist-card md-2">
+        <div class="card-body">
+            <a href="{%url 'listing' listing_id=item.id%}" class="text-decoration-none text-body">
+            {%if auction.image%}
+            <img src="{{item.image}}" class="card-img-top">
+            {%endif%}
+        <h3 class="card-title"> {{item.name}} </h3>
+        <div class="card-text"> {{item.description}} </div>
+        <p class="card-text">Current bid: € {{item.current_price}}</p>
+        </a>
+        
+        <a href="{% url 'remove_watchlist2' listing_id=item.id%}" class="btn btn-secondary">Remove from Watchlist</a>
+            
+        </div>
+    </div>
+
+    {%empty%}
+    <h3>No Auctions in Watchlist</h3>
+    {%endfor%}
+{% endblock %}

@@ -1,0 +1,31 @@
+body {
+    padding: 10px;
+}
+.card-img-top {
+    height: 200px;
+    object-fit: contain;
+}
+
+.listing-card:hover {
+    background-color: rgb(225, 225, 225);
+    box-shadow: 0 4px 12px rgb(191, 191, 191);
+}
+
+.watchlist-card:hover {
+    background-color: rgb(225, 225, 225);
+    box-shadow: 0 4px 12px rgb(191, 191, 191);
+}
+
+.history {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.nav-link.active {
+    color: rgb(89, 0, 255) !important;
+    font-weight: bold;
+}
+
+.listing-card {
+    min-height: 350px;
+}
